@@ -2,60 +2,53 @@ require 'spec_helper'
 
 describe "Static pages" do
 
+  subject { page }
+
+  shared_examples_for "all static pages" do
+    it { should have_content(heading) }
+    it { should have_title(full_title(page_title)) }
+  end
+
   describe "Home page" do
+    before { visit root_path }
+    let(:heading)    { 'AJT' }
+    let(:page_title) { '' }
 
-    it "should have the content 'AJT'" do
-      visit '/static_pages/home'
-      expect(page).to have_content('AJT')
-    end
-
-    it "should have the title 'Home'" do
-      visit '/static_pages/home'
-      expect(page).to have_title("AJT")
-    end
-
-    it "should not have a custom page title" do
-      visit '/static_pages/home'
-      expect(page).not_to have_title('| Home')
-    end
+    it_should_behave_like "all static pages"
+    it { should_not have_title('| Home') }
   end
 
   describe "About page" do
+    before { visit about_path }
+    let(:heading)    { 'About Us' }
+    let(:page_title) { 'About Us' }
 
-    it "should have the content 'About Us'" do 
-      visit '/static_pages/about'
-      expect(page).to have_content('About Us')
-    end
-
-    it "should have the title 'About Us'" do
-      visit '/static_pages/about'
-      expect(page).to have_title("AJT | About Us")
-    end
-  end
-
-  describe "FAQ page" do
-
-    it "should have the content 'FAQ'" do
-      visit '/static_pages/faq'
-      expect(page).to have_content('FAQ')
-    end
-
-    it "should have the title 'FAQ'" do
-      visit '/static_pages/faq'
-      expect(page).to have_title("AJT | FAQ")
-    end
+    it_should_behave_like "all static pages"
   end
 
   describe "Contact page" do
+    before { visit contact_path }
+    let(:heading)    { 'Contact' }
+    let(:page_title) { 'Contact' }
 
-    it "should have the content 'Contact'" do
-      visit '/static_pages/contact'
-      expect(page).to have_content('Contact')
-    end
+    it_should_behave_like "all static pages"
+  end
 
-    it "should have the title 'Contact'" do
-      visit '/static_pages/contact'
-      expect(page).to have_title("AJT | Contact")
-    end
+  describe "FAQ page" do
+    before { visit faq_path }
+    let(:heading)    { 'FAQ' }
+    let(:page_title) { 'FAQ' }
+
+    it_should_behave_like "all static pages"
+  end
+
+  it "should have the right links on the layout" do
+    visit root_path
+    click_link "About"
+    expect(page).to have_title(full_title('About Us'))
+    click_link "FAQ"
+    expect(page).to have_title(full_title('FAQ'))
+    click_link "Contact"
+    expect(page).to have_title(full_title('Contact'))
   end
 end

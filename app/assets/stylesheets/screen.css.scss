@@ -1,0 +1,167 @@
+@import 'skeleton/base';
+@import 'skeleton/layout';
+@import 'skeleton/skeleton';
+
+@import 'normalize';
+
+@import 'variables';
+
+/*--------------------------------------*/
+/* Basic styles
+/*--------------------------------------*/
+body {
+  font-family: $ff_base;
+  font-size: $base_font_size;
+  font-weight: 400;
+  color: $body_text_color;
+  line-height: 18px;
+  background-color: $layout_background_color;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Line style */
+hr {
+  height: 0;
+  background-color: transparent;
+  color: transparent;
+  border: none;
+  border-bottom: $default_border;
+}
+
+/*--------------------------------------*/
+/* Links
+/*--------------------------------------*/
+a {
+  text-decoration: none;
+  color: $link_text_color;
+
+  &:hover {
+    color: darken($link_text_color, 10);
+  }
+
+  &:active, &:focus {
+    outline: none;
+  }
+}
+
+/*--------------------------------------*/
+/* Lists
+/*--------------------------------------*/
+ul, ol {
+  margin-left: 0;
+  margin-top: 0;
+  -webkit-padding-start: 0px;
+  padding-left: 0;
+  list-style-position: inside;
+
+  &.inline {
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+/*--------------------------------------*/
+/* Headers
+/*--------------------------------------*/
+h1 { font-size: $heading_font_size;         line-height: $heading_font_size + 10;         }
+h2 { font-size: $heading_font_size - 2;     line-height: $heading_font_size - 2 + 10;     }
+h3 { font-size: $heading_font_size - 4;     line-height: $heading_font_size - 4 + 10;     }
+h4 { font-size: $heading_font_size - 6;     line-height: $heading_font_size - 6 + 10;     }
+h5 { font-size: $sub_heading_font_size;     line-height: $sub_heading_font_size + 10;     }
+h6 { font-size: $sub_heading_font_size - 2; line-height: $sub_heading_font_size - 2 + 10; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: $title_text_color;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/*--------------------------------------*/
+/* Footer
+/*--------------------------------------*/
+footer#footer {
+  margin-top: 30px;
+  border-top: $default_border;
+  padding-top: 30px;
+  font-size: 14px;
+  line-height: 24px;
+
+  &, a, h5 {
+
+  }
+
+  a:hover {
+    color: lighten($c_green, 30) !important;
+  }
+
+  h5 {
+    text-transform: uppercase;
+    line-height: 52px;
+    margin-bottom: 23px;
+    font-size: 17px;
+  }
+
+  p {
+    padding-top: 0;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+
+    }
+  }
+}
+
+
+
+/*--------------------------------------*/
+/* Paragraphs
+/*--------------------------------------*/
+p {
+  padding: 10px 0;
+}
+
+/*--------------------------------------*/
+/* Navigation
+/*--------------------------------------*/
+nav #main-nav-bar {
+  font-weight: bold;
+  margin-top: 20px;
+  border-bottom: $default_border;
+  padding-bottom: 6px;
+
+  li {
+
+    a {
+      font-size: $horizontal_navigation_font_size;
+      padding: 5px;
+    }
+
+    &:first-child {
+      a {
+        padding-left: 0
+      }
+    }
+
+    &#link-to-cart, &#link-to-login, &#link-to-signup,  {
+      float: right;
+      padding-left: 24px;
+
+      &:hover {
+        border-color: $link_text_color;
+      }
+
+      a {
+        font-weight: normal;
+        font-size: $horizontal_navigation_font_size;
+        color: $link_text_color;
+      }
+    }
+  }
+}

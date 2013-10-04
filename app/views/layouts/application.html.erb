@@ -1,14 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<!doctype html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+  <head>
+    <%= render 'layouts/head' %>
+  </head>
+  <body>
+    <div class="container">
+      <%= render 'layouts/header' %>
+      <div id="wrapper" class="row">
+        <%= render 'layouts/sidebar' if content_for? :sidebar %>
+        <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve" %>">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
 </html>

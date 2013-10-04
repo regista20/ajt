@@ -9,13 +9,16 @@
   <body>
     <div class="container">
       <%= render 'layouts/header' %>
+      <%= render 'layouts/subheader' %>
       <div id="wrapper" class="row">
         <%= render 'layouts/sidebar' if content_for? :sidebar %>
         <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve" %>">
+          <%= flash_messages %>
           <%= yield %>
         </div>
       </div>
       <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>

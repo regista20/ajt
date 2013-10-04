@@ -1,2 +1,37 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+
+<% content_for :subheader do %>
+  <h1>Sign up</h1>
+<% end %>
+
+<div id="new-member">
+  <div>
+    <%= render 'shared/error_messages', target: @user %>
+    <%= form_for(@user) do |f| %>
+
+      <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </p>
+
+      <p>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </p>
+
+      <p>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </p>
+
+      <p>
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+      </p>
+
+      <p><%= f.submit "Create my account", class: "button primary" %></p>
+
+      or <%= link_to 'Login as Existing Member', '#' %>
+    <% end %>
+  </div>
+</div>

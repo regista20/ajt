@@ -44,6 +44,10 @@ describe "Static pages" do
 
   it "should have the header links on the layout" do
     visit root_path
+    click_link "AJT"
+    expect(page).to have_title(full_title(''))
+    click_link "Sign in"
+    expect(page).to have_title(full_title('Sign in'))
     click_link "Sign up"
     expect(page).to have_title(full_title('Sign up'))
   end

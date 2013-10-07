@@ -240,31 +240,17 @@ nav #main-nav-bar {
   padding-bottom: 6px;
 
   li {
-
-    a {
-      font-size: $horizontal_navigation_font_size;
-      padding: 5px;
-    }
-
-    &:first-child {
-      a {
-        padding-left: 0
-      }
-    }
-
-    &#link-to-cart, &#link-to-login, &#link-to-signup,  {
       float: right;
       padding-left: 24px;
 
-      &:hover {
+    &:hover {
         border-color: $link_text_color;
-      }
+    }
 
-      a {
-        font-weight: normal;
-        font-size: $horizontal_navigation_font_size;
-        color: $link_text_color;
-      }
+    a {
+      font-weight: normal;
+      font-size: $horizontal_navigation_font_size;
+      padding: 5px;
     }
   }
 }

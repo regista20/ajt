@@ -1,0 +1,44 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+  <head>
+    <%= render 'layouts/admin/head' %>
+  </head>
+
+  <body class="admin">
+    <div class="wrapper">
+
+      <% if flash[:error] %>
+        <div class="flash error"><%= flash[:error] %></div>
+      <% end %>
+      <% if notice %>
+        <div class="flash notice"><%= notice %></div>
+      <% end %>
+      <% if flash[:success] %>
+        <div class="flash success"><%= flash[:success] %></div>
+      <% end %>
+
+      <%= render 'layouts/admin/header' %>
+      <%= render 'layouts/admin/menu' %>
+      <%= render 'layouts/admin/sub_menu' %>
+      <%= render 'layouts/admin/content_header' %>
+
+      <div class="container">
+        <div class="row">
+          <div class="<%= 'with-sidebar ' if content_for?(:sidebar) %>" id="content">
+            <%= render 'layouts/admin/table_filter' %>
+
+            <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve" %>">
+              <%= yield %>
+            </div>
+
+           <%= render 'layouts/admin/sidebar' %>
+           <%= debug(params) if Rails.env.development? %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

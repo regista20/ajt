@@ -1,0 +1,7 @@
+<tr id="<%= user.id %>" class="<%= cycle('odd', 'even')%>">
+  <td class="align-center" style="width:350px;"><%= user.name %></td>
+  <td class="actions">
+    <%= link_to "edit", edit_admin_user_path(user) %>
+    <%= link_to "delete", admin_user_path(user), method: :delete, data: { confirm: "You sure?" } %>
+  </td>
+</tr>

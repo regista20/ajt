@@ -1,0 +1,15 @@
+<header id="header">
+  <div class="container">
+    <figure class="columns five">
+      <%= link_to image_tag("rails.png", :id => 'logo'), admin_path %>
+    </figure>
+
+    <nav class="columns eleven">
+      <ul id="signin-nav">
+        <li><%= link_to "Account", current_user %></li>
+        <li><%= link_to "Sign out", signout_path, method: :delete %></li>
+        <li><%= link_to "Go Back To AJT", root_path %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

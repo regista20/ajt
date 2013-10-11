@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="alpha five columns">
+    <div class="fields">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="fields">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+  </div>
+
+  <div class="omega five columns">
+    <div class="fields">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="fields">
+      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="fields">
+      <label>Roles</label>
+      <ul>
+        <% Role.all.each do |role| %>
+          <li>
+            <%= radio_button_tag 'user[role_ids]', role.id, @user.roles.include?(role) %>
+            <%= label_tag role.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

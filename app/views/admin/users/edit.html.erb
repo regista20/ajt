@@ -1,0 +1,21 @@
+<% content_for :page_title do %>
+  Editing User
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= link_to "Back To Users List", admin_users_path %>
+  </li>
+<% end %>
+
+<%= render 'shared/error_messages', target: @user %>
+
+<div id="sixteen columns">
+  <%= form_for [:admin, @user] do |f| %>
+    <fieldset class="alpha ten columns">
+      <legend>General Settings</legend>
+      <%= render 'fields', f: f %>
+      <%= render 'admin/shared/edit_resource_links' %>
+    </fieldset>
+  <% end %>
+</div>

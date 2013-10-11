@@ -1,0 +1,13 @@
+<meta charset="utf-8">
+<title>
+  <%= "AJT Administration: " %>
+  <%= controller.controller_name.titleize %>
+</title>
+
+<!-- Get "Open Sans" font from Google -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600&subset=latin,cyrillic,greek,vietnamese' rel='stylesheet' type='text/css'>
+
+<%= stylesheet_link_tag "admin/application", media: "all",
+                                       "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
